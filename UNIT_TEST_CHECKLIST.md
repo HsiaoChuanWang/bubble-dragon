@@ -128,7 +128,9 @@ mvn clean verify
   test: add enemy state transition unit tests
   ```
 
-- [ ] 5. 新增 `BubbleTest`
+- [x] 5. 新增 `BubbleTest`
+
+  完成紀錄：已加入初始狀態、年齡累加、停用、上升、頂端停止、捕捉敵人、保持中心點及抖動不累積漂移測試。仍須在 Maven 憑證環境恢復後執行下方指令確認。
 
   建議檔案：
 
