@@ -40,7 +40,9 @@ mvn clean verify
   test: expand countdown timer unit tests
   ```
 
-- [ ] 2. 補強 `OverlapCheckerTest`
+- [x] 2. 補強 `OverlapCheckerTest`
+
+  完成紀錄：已補齊包含、四方向重疊、角落接觸、負數／小數座標及輸入順序對稱性測試。仍須在 Maven 憑證環境恢復後執行下方指令確認。
 
   必須測試：
 
