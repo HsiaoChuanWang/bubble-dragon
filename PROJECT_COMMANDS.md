@@ -27,7 +27,7 @@ jpackage --version
 | `mvn javafx:run` | 啟動遊戲 |
 | `mvn clean javafx:run` | 清除舊產物後啟動遊戲 |
 | `mvn compile` | 編譯主程式 |
-| `mvn test` | 執行全部單元測試 |
+| `mvn test` | 執行全部自動化測試（Unit 與 Integration Test） |
 | `mvn clean verify` | 乾淨編譯並執行所有驗證，提交前建議使用 |
 | `mvn clean javafx:jlink` | 建立自包含的 Java Runtime 與 ZIP |
 | `mvn dependency:tree` | 顯示 Maven 相依套件樹 |
@@ -50,8 +50,9 @@ mvn clean javafx:run
 遊戲操作：
 
 - 左、右方向鍵：移動
+- `Space`：跳躍
 - `Z`：吹泡泡
-- `Esc`：返回／暫停（依目前畫面而定）
+- `Esc`：從遊戲畫面返回首頁
 
 ## 編譯與驗證
 
@@ -75,7 +76,7 @@ mvn clean verify
 
 `verify` 會重新編譯程式、複製 `src/main/resources` 資源，並執行 JUnit 測試。這是提交程式碼前最實用的檢查指令。
 
-## 單元測試
+## 自動化測試
 
 執行全部測試：
 
@@ -88,6 +89,11 @@ mvn test
 ```powershell
 mvn -Dtest=CountdownTimerTest test
 mvn -Dtest=OverlapCheckerTest test
+mvn -Dtest=PlayerTest test
+mvn -Dtest=EnemyTest test
+mvn -Dtest=BubbleTest test
+mvn -Dtest=BossTest test
+mvn -Dtest=LevelLoaderTest test
 ```
 
 執行單一測試方法：
@@ -102,6 +108,12 @@ PowerShell 中建議把含 `#` 的參數加上雙引號，避免解析問題。�
 
 ```text
 target\surefire-reports\
+```
+
+使用 PowerShell 查看所有測試摘要：
+
+```powershell
+Get-Content target\surefire-reports\*.txt
 ```
 
 ## 建立可攜式 Runtime
