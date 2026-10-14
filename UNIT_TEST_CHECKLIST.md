@@ -64,7 +64,9 @@ mvn clean verify
   test: expand overlap checker edge cases
   ```
 
-- [ ] 3. 新增 `PlayerTest`
+- [x] 3. 新增 `PlayerTest`
+
+  完成紀錄：已加入初始狀態、受傷、無敵期間、無敵結束、死亡狀態及 HP 下限測試。仍須在 Maven 憑證環境恢復後執行下方指令確認。
 
   建議檔案：
 
