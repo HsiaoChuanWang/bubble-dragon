@@ -199,7 +199,9 @@ mvn clean verify
 
 `LevelLoaderTest` 會同時驗證 `LevelLoader`、Jackson 和真實關卡 JSON 的整合，因此不是純 Unit Test，但它對本專案是必要測試。
 
-- [ ] 7. 新增 `LevelLoaderTest`
+- [x] 7. 新增 `LevelLoaderTest`
+
+  完成紀錄：已加入兩個真實關卡的載入、玩家起始座標、地磚與敵人數量、貼圖與地磚資料，以及不存在資源的例外測試。仍須在 Maven 憑證環境恢復後執行下方指令確認。
 
   建議檔案：
 
