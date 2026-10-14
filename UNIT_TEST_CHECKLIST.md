@@ -161,7 +161,9 @@ mvn clean verify
   test: add bubble lifecycle and trapping unit tests
   ```
 
-- [ ] 6. 新增 `BossTest`
+- [x] 6. 新增 `BossTest`
+
+  完成紀錄：已加入初始狀態、方向正規化、反轉、面向、有效傷害、無敵期間、無敵結束、第五次命中及擊敗後不可再受傷測試。仍須在 Maven 憑證環境恢復後執行下方指令確認。
 
   建議檔案：
 
