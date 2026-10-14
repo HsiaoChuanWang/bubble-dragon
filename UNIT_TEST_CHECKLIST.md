@@ -95,7 +95,9 @@ mvn clean verify
   test: add player state and damage unit tests
   ```
 
-- [ ] 4. 新增 `EnemyTest`
+- [x] 4. 新增 `EnemyTest`
+
+  完成紀錄：已加入方向正規化、反轉、面向、可捕捉狀態、捕捉效果、禁止重複捕捉、掙脫及擊敗測試。仍須在 Maven 憑證環境恢復後執行下方指令確認。
 
   建議檔案：
 
