@@ -1,0 +1,90 @@
+{
+    "playerX": 70,
+    "playerY": 560,
+    "tileTextures": ["/images/stone01.png", "/images/stone02.png"],
+    "tiles": [
+        {
+            "x": 0,
+            "y": 560,
+            "width": 1008,
+            "solid": true,
+            "texturePattern": ["/images/stone01.png"]
+        },
+        {
+            "x": 0,
+            "y": 420,
+            "width": 288,
+            "solid": true,
+            "texturePattern": [
+                "/images/stone01.png",
+                "/images/stone02.png",
+                "/images/stone02.png",
+                "/images/stone01.png"
+            ]
+        },
+        {
+            "x": 0,
+            "y": 250,
+            "width": 216,
+            "solid": true,
+            "texturePattern": [
+                "/images/stone02.png",
+                "/images/stone01.png",
+                "/images/stone01.png"
+            ]
+        },
+        {
+            "x": 380,
+            "y": 320,
+            "width": 216,
+            "solid": true,
+            "texturePattern": [
+                "/images/stone01.png",
+                "/images/stone02.png",
+                "/images/stone02.png"
+            ]
+        },
+        {
+            "x": 300,
+            "y": 110,
+            "width": 360,
+            "solid": true,
+            "texturePattern": [
+                "/images/stone01.png",
+                "/images/stone02.png",
+                "/images/stone01.png",
+                "/images/stone02.png",
+                "/images/stone01.png"
+            ]
+        },
+        {
+            "x": 672,
+            "y": 420,
+            "width": 288,
+            "solid": true,
+            "texturePattern": [
+                "/images/stone01.png",
+                "/images/stone01.png",
+                "/images/stone02.png",
+                "/images/stone01.png"
+            ]
+        },
+        {
+            "x": 744,
+            "y": 250,
+            "width": 216,
+            "solid": true,
+            "texturePattern": [
+                "/images/stone02.png",
+                "/images/stone01.png",
+                "/images/stone01.png"
+            ]
+        }
+    ],
+    "enemies": [
+        { "x": 100, "y": 130, "direction": 1 },
+        { "x": 400, "y": 200, "direction": 1 },
+        { "x": 160, "y": 300, "direction": -1 },
+        { "x": 820, "y": 130, "direction": -1 }
+    ]
+}

@@ -8,6 +8,7 @@
     <version>1.0.0</version>
     <name>Bubble Dragon</name>
 
+    <!-- 集中管理版本，日後升級套件時只需修改此區。 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
@@ -17,21 +18,27 @@
     </properties>
 
     <dependencies>
+        <!-- JavaFX 的視窗、控制項、Canvas 與 AnimationTimer。 -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+
+        <!-- 讀取 resources/maps 下的 JSON 關卡。 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+
+        <!-- 僅在測試階段使用，不會包進正式遊戲。 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -42,23 +49,52 @@
 
     <build>
         <plugins>
+            <!-- 強制使用 Java 21 語法與 API 編譯。 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration><release>21</release></configuration>
             </plugin>
+
+            <!-- 執行 src/test/java 內的 JUnit 5 測試。 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.3</version>
                 <configuration><useModulePath>false</useModulePath></configuration>
             </plugin>
+            
+            <!--
+                提供兩種 JavaFX Maven 指令：
+                1. mvn javafx:run：直接啟動遊戲。
+                2. mvn clean javafx:jlink：建立內含 Java、JavaFX 與遊戲模組的自包含 Runtime。
+            -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
-                <configuration><mainClass>com.bubble.dragon/com.bubble.dragon.Main</mainClass></configuration>
+                <configuration>
+                    <!-- 以「模組名稱/完整主類別」指定遊戲入口。 -->
+                    <mainClass>com.bubble.dragon/com.bubble.dragon.Main</mainClass>
+
+                    <!-- jlink 產生的啟動器名稱。 -->
+                    <launcher>BubbleDragon</launcher>
+
+                    <!-- jlink 建立的自包含 Runtime 資料夾名稱。 -->
+                    <jlinkImageName>BubbleDragonRuntime</jlinkImageName>
+
+                    <!-- 同時輸出 Runtime ZIP，方便測試或備份。 -->
+                    <jlinkZipName>BubbleDragonRuntime</jlinkZipName>
+
+                    <!-- 強制所有執行期依賴使用 module-path，配合本專案的 module-info.java。 -->
+                    <runtimePathOption>MODULEPATH</runtimePathOption>
+
+                    <!-- 移除除錯資訊、開發用標頭與說明頁，縮小最後的打包體積。 -->
+                    <stripDebug>true</stripDebug>
+                    <noHeaderFiles>true</noHeaderFiles>
+                    <noManPages>true</noManPages>
+                </configuration>
             </plugin>
         </plugins>
     </build>
